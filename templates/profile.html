@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+</head>
+<body>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+
+      <h1>Profile</h1>
+      <hr>
+
+      <div class="card">
+        <div class="card-body">
+          {% if user %}
+          <h5 class="card-title">{{ username }}</h5>
+          <hr>
+          <p><strong>{{ user["name"] }}</strong></p>
+          <p style="color: blue">{{ user["twitter_handle"] }}</p>
+          <p class="text-muted">{{ user["bio"] }}</p>
+          <p class="text-muted">the person is named as {{user["name"]}} and is {{user["bio"]}} man</p>
+          {% else %}
+          <p>User {{ username }} not found</p>
+          {% endif %}
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>

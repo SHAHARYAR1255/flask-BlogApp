@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('{{ url_for ('static' , filename='img/home-bg.jpg' ) }}')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>{{params['blog_name']}}</h1>
+            <h2>er</h2>
+            <span class="subheading">{{params['tagline']}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+<body>
+    <div>
+      <a href="/edit/0"><button type="btn" class="btn btn-primary">ADD NEW POST</button></a>
+    </div>
+    <hr>
+    <h3>upload file</h3>
+    <form action="/uploader" method="post" enctype="multipart/form-data">
+      <input type="file" name="file"></input>
+      <input type="submit" class="adeIn fourth" value="upload">
+    </form>
+   
+    <hr>
+    <a href="/logout">logout</a>
+    <h3>edit  here</h3>
+     <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>serial</th>
+        <th>title</th>
+        <th>date</th>
+        <th>delete</th>
+        <th>edit</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for posts in posting %}
+      <tr>
+        <td>{{posts.serial}}</td>
+        <td>{{posts.title}}</td>
+        <td>{{posts.date}}</td>
+        <td><a href="/edit/{{posts.serial}}"> <button type="button" class= "btn btn-primary">edit</button></a></td>
+        <td><a href="/delete/{{posts.serial}}"><button type="button" class= "btn btn-primary">delete</button></a></td>
+      </tr>
+      {% endfor %}
+     
+    </tbody>
+  </table>
+</body>
+
+{% endblock %}
